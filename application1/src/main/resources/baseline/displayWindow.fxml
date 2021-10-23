@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="466.0" text="Display the tasks that is: &lt;&lt;keyword&gt;&gt;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TreeTableView prefHeight="326.0" prefWidth="507.0">
+         <columns>
+            <TreeTableColumn fx:id="taskName" prefWidth="80.00006407499313" text="task" />
+            <TreeTableColumn fx:id="taskDueDate" prefWidth="95.199951171875" text="due date" />
+            <TreeTableColumn fx:id="taskInfo" prefWidth="420.79998779296875" text="description" />
+         </columns>
+      </TreeTableView>
+   </children>
+</VBox>
