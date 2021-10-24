@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.mainListWindow">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.MainListWindowController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" text="Welcome to &lt;titleOfList&gt;!" underline="true">
          <font>
@@ -22,31 +21,42 @@
       </Label>
       <HBox prefHeight="376.0" prefWidth="600.0">
          <children>
-            <VBox alignment="TOP_CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="346.0" prefWidth="484.0">
                <children>
-                  <TreeTableView prefHeight="326.0" prefWidth="507.0">
+                  <TreeTableView fx:id="tableView" prefHeight="326.0" prefWidth="457.0">
                     <columns>
-                      <TreeTableColumn fx:id="taskName" prefWidth="80.00006407499313" text="task" />
-                      <TreeTableColumn fx:id="taskDueDate" prefWidth="79.99993896484375" text="due date" />
-                        <TreeTableColumn fx:id="taskInfo" prefWidth="252.80003356933594" text="description" />
-                        <TreeTableColumn minWidth="-1.0" prefWidth="55.199951171875" text="select" />
+                      <TreeTableColumn fx:id="taskName" prefWidth="71.20001065731049" text="task" />
+                      <TreeTableColumn fx:id="taskDueDate" prefWidth="77.59998321533203" text="due date" />
+                        <TreeTableColumn fx:id="taskInfo" prefWidth="243.20001220703125" text="description" />
+                        <TreeTableColumn fx:id="taskStatus" prefWidth="64.800048828125" text="status" />
                     </columns>
                   </TreeTableView>
                </children>
             </VBox>
-            <VBox prefHeight="346.0" prefWidth="170.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="346.0" prefWidth="169.0" spacing="8.0">
                <children>
-                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addTask" text="add new task" />
-                  <Button fx:id="displayButton" mnemonicParsing="false" onAction="#displayTask" text="edit a task" />
-                  <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeTask" text="remove task" />
-                  <Button mnemonicParsing="false" text="make completed" />
+                  <Button fx:id="addNewTaskButton" mnemonicParsing="false" onAction="#addNewTaskButtonPushed" text="add new task" />
+                  <Label text="for a selected task">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#editTaskButtonPushed" text="edit a task" />
+                  <Button fx:id="removeTaskButton" mnemonicParsing="false" onAction="#removeTaskButtonPushed" text="remove task" />
+                  <Button fx:id="makeTaskCompleteButton" mnemonicParsing="false" onAction="#makeTaskCompleteButtonPushed" text="make complete" />
+                  <Button fx:id="makeTaskIncompleteButton" mnemonicParsing="false" onAction="#makeTaskIncompleteButtonPushed" text="make incomplete" />
                   <Label text="display options">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="show completed" />
-                  <Button mnemonicParsing="false" text="show incompleted" />
+                  <Button fx:id="showTaskCompleteButton" mnemonicParsing="false" onAction="#showTaskCompleteButtonPushed" text="show completed" />
+                  <Button fx:id="showTaskIncompleteButton" mnemonicParsing="false" onAction="#showTaskIncompleteButtonPushed" text="show incomplete" />
+                  <Button fx:id="backToMainPageButton" mnemonicParsing="false" onAction="#backToMainPageButtonPushed" text="back to main page">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
                </children>
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

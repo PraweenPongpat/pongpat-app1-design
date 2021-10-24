@@ -1,0 +1,120 @@
+@startuml
+Application -- RootController
+RootController --SaveLoadWindowController
+RootController --MainListWindowController
+RootController --ErrorDisplayWindowController
+AddEditWindowController --ErrorDisplayWindowController
+MainListWindowController -- DisplayWindowController
+MainListWindowController --AddEditWindowController
+MainListWindowController --ErrorDisplayWindowController
+AddEditWindowController --ItemsInATodoList
+MainListWindowController --ItemsInATodoList
+
+
+class Application {
+    +start(Stage)
+    +main(String[])
+}
+class RootController {
+    - @FXML Button addToList
+    - @FXML Button delFromList
+    - @FXML Button editAList
+    - @FXML Button loadFromFile
+    - @FXML TreeTableColumn<?, ?> nameOfList
+    - @FXML Button safeToFile
+    - @FXML TextField titleOfList
+    - Map<String,List> mapOfTodoList
+
+    + oid setMapOfTodoList(Map)
+    + Map getMapOfTodoList ()
+    + @FXML addToListButtonPushed(ActionEvent)
+    + @FXML delFromListButtonPushed(ActionEvent)
+    + @FXML editAListButtonPushed(ActionEvent)
+    + @FXML loadFromFileButtonPushed(ActionEvent)
+    + @FXML saveToFileButtonPushed(ActionEvent)
+    + @Override initialize ()
+}
+class ItemsInATodoList {
+    - String taskTitle
+    - String taskDueDate
+    - String taskInfo
+    - String taskStatus
+
+    ' constructor
+    + ItemsInATodoList(String, String, String, String)
+    + setTaskTitle (String)
+    + setTaskDueDate (String)
+    + setTaskInfo (String)
+    + setTaskStatus (String)
+    + getTaskTitle ()
+    + getTaskDueDate ()
+    + getTaskInfo ()
+    + getTaskStatus ()
+}
+class SaveLoadWindowController {
+    - @FXML TextField fileLocation
+    - @FXML TextField fileName
+    + @FXML List<String> cancelButtonPushed(ActionEvent)
+    + @FXML List<String> finishButtonPushed(ActionEvent)
+}
+class MainListWindowController {
+    - @FXML Button addNewTaskButton
+    - @FXML Button backToMainPageButton
+    - @FXML Button editTaskButton
+    - @FXML Button makeTaskCompleteButton
+    - @FXML Button makeTaskIncompleteButton
+    - @FXML Button removeTaskButton
+    - @FXML Button showTaskCompleteButton
+    - @FXML Button showTaskIncompleteButton
+    - @FXML TreeTableColumn<?, ?> taskDueDate
+    - @FXML TreeTableColumn<?, ?> taskInfo
+    - @FXML TreeTableColumn<?, ?> taskName
+    - @FXML TreeTableColumn<?, ?> taskStatus
+    - @FXML TreeTableView<?> tableView
+    - List<> listOfItems
+
+    + setListOfItems(List)
+    + List<> getListOfItems()
+    + @FXML ItemsInATodoList addNewTaskButtonPushed(ActionEvent)
+    + @FXML List<> backToMainPageButtonPushed(ActionEvent)
+    + @FXML ItemsInATodoList editTaskButtonPushed(ActionEvent)
+    + @FXML makeTaskCompleteButtonPushed(ActionEvent)
+    + @FXML makeTaskIncompleteButtonPushed(ActionEvent)
+    + @FXML removeTaskButtonPushed(ActionEvent)
+    + @FXML showTaskCompleteButtonPushed(ActionEvent)
+    + @FXML showTaskIncompleteButtonPushed(ActionEvent)
+    + @Override initialize ()
+}
+class AddEditWindowController {
+    - @FXML Button doneButton
+    - @FXML Button cancelButton
+    - @FXML TextField taskDueDate
+    - @FXML TextArea taskInfo
+    - @FXML TextField taskTitle
+    - private ItemsInATodoList editingList
+
+    + setEditingList(ItemsInATodoList)
+    + ItemsInATodoList getEditingList ()
+    + @FXML ItemsInATodoList doneButtonPushed(ActionEvent)
+    + @FXML ItemsInATodoList cancelButtonPushed(ActionEvent)
+    + @Override initialize ()
+}
+class ErrorDisplayWindowController {
+    - @FXML Label messageLabel
+    - @FXML Button okButton
+    - String errorStatement
+
+    + setErrorStatement (String)
+    + getErrorStatement ()
+    + @FXML okButtonPushed(ActionEvent)
+    + @Override initialize ()
+}
+class DisplayWindowController {
+    - @FXML Label messageLabel
+    - @FXML Button okButton
+    - String errorStatement
+
+    + setErrorStatement(String errorStatement)
+    + String getErrorStatement()
+}
+@enduml
