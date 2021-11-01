@@ -20,6 +20,10 @@ public class Application extends javafx.application.Application {
 
         Scene scene = new Scene(root);
 
+        //init sceneManager here!!*****************************
+        //inside the scene manager, it will init EACH object (from each class)
+
+
         //set the Map<String,list<obj>> to be a new-made empty map
         //use the setter in RootController class
 
